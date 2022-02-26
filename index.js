@@ -7,16 +7,16 @@ dotenv.config();
 
 // connection
 mongoose.connect(
-    process.env.connect,
-    {useUnifiedTopology:true,useNewUrlParser:true},
-    ()=> console.log("connection successfully")
+  process.env.connect,
+  { useUnifiedTopology: true, useNewUrlParser: true },
+  () => console.log("connection successfully")
 );
 
 const app = express();
 
 /// available routes
 
-const userRoutes = require ("./routes/user");
+const userRoutes = require("./routes/user");
 
 ///  middleware
 app.use(express.json());
@@ -24,8 +24,6 @@ app.use(express.json());
 app.use(cors());
 
 /// route middleware
-app.use("/api/users",userRoutes);
+app.use("/api/users", userRoutes);
 
-
-
-app.listen(5000,()=> console.log("server started"));
+app.listen(5000, () => console.log("server started"));
